@@ -210,98 +210,99 @@ const CadastroAtendimento = () => {
 
   return (
     <PaperProvider>
-      <LinearGradient colors={['#0f0f0f', '#424242']} style={styles.gradientBackground}>
+      <LinearGradient colors={['#009A78', '#F9F9F9', '#FFFFFF']} style={styles.gradientBackground}>
         <SafeAreaView style={styles.safeArea}>
-
-          <Image source={require('../../assets/images/petcare.png')} style={styles.image} />
-
-          <View style={styles.container}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Adicionar Agendamento</Text>
+          <View style={styles.content}>
+            <View style={styles.header}>
+              <Image source={require('../../assets/images/petcare.png')} style={styles.image} />
+              <Text style={styles.brand}>Pet Care</Text>
             </View>
 
-            <View style={styles.modalContent}>
-              <TouchableOpacity
-                onPress={() => setShowDatePicker(true)}
-                style={[
-                  styles.datePickerButton,
-                  newAgendamento.dataAtendimento ? { borderColor: '#00635D', borderWidth: 2 } : {}
-                ]}
-                activeOpacity={0.7}
-              >
-                <Text style={styles.datePickerText}>
-                  {newAgendamento.dataAtendimento || 'Selecionar Data de Atendimento'}
-                </Text>
-              </TouchableOpacity>
-
-              {showDatePicker && (
-                <DateTimePicker
-                  value={selectedDate}
-                  mode="date"
-                  display="default"
-                  onChange={(event, date) => onChangeDate(event, date, false)}
-                />
-              )}
-
-
-              <View style={[
-                styles.pickerContainer,
-                newAgendamento.horario ? { borderColor: '#00635D', borderWidth: 2 } : {}
-              ]}>
-                <Picker
-                  selectedValue={newAgendamento.horario}
-                  onValueChange={(itemValue) =>
-                    setNewAgendamento(prev => ({ ...prev, horario: itemValue }))
-                  }
-                  style={styles.picker}
-                  dropdownIconColor="#00635D"
-                >
-                  <Picker.Item label="Selecione um horário" value="" />
-                  {horarios.map((horario, index) => (
-                    <Picker.Item key={index} label={horario} value={horario} />
-                  ))}
-                </Picker>
+            <View style={styles.container}>
+              <View style={styles.modalHeader}>
+                <Text style={styles.modalTitle}>Adicionar Agendamento</Text>
               </View>
 
-              <View style={[
-                styles.pickerContainer,
-                selectedServico ? { borderColor: '#00635D', borderWidth: 2 } : {}
-              ]}>
-                <Picker
-                  selectedValue={selectedServico}
-                  onValueChange={(itemValue) => {
-                    setSelectedServico(itemValue);
-                    setNewAgendamento(prev => ({ ...prev, fk_servico_id: Number(itemValue) }));
-                  }}
-                  style={styles.picker}
-                  dropdownIconColor="#00635D"
+              <View style={styles.modalContent}>
+                <TouchableOpacity
+                  onPress={() => setShowDatePicker(true)}
+                  style={[
+                    styles.datePickerButton,
+                    newAgendamento.dataAtendimento ? { borderColor: '#00635D', borderWidth: 2 } : {}
+                  ]}
+                  activeOpacity={0.7}
                 >
-                  <Picker.Item label="Selecione um Serviço" value="" />
-                  {servicos.map(servico => (
-                    <Picker.Item key={servico.id} label={servico.tiposervico} value={servico.id} />
-                  ))}
-                </Picker>
+                  <Text style={styles.datePickerText}>
+                    {newAgendamento.dataAtendimento || 'Selecionar Data de Atendimento'}
+                  </Text>
+                </TouchableOpacity>
+
+                {showDatePicker && (
+                  <DateTimePicker
+                    value={selectedDate}
+                    mode="date"
+                    display="default"
+                    onChange={(event, date) => onChangeDate(event, date, false)}
+                  />
+                )}
+
+                <View style={[
+                  styles.pickerContainer,
+                  newAgendamento.horario ? { borderColor: '#00635D', borderWidth: 2 } : {}
+                ]}>
+                  <Picker
+                    selectedValue={newAgendamento.horario}
+                    onValueChange={(itemValue) =>
+                      setNewAgendamento(prev => ({ ...prev, horario: itemValue }))
+                    }
+                    style={styles.picker}
+                    dropdownIconColor="#00635D"
+                  >
+                    <Picker.Item label="Selecione um horário" value="" />
+                    {horarios.map((horario, index) => (
+                      <Picker.Item key={index} label={horario} value={horario} />
+                    ))}
+                  </Picker>
+                </View>
+
+                <View style={[
+                  styles.pickerContainer,
+                  selectedServico ? { borderColor: '#00635D', borderWidth: 2 } : {}
+                ]}>
+                  <Picker
+                    selectedValue={selectedServico}
+                    onValueChange={(itemValue) => {
+                      setSelectedServico(itemValue);
+                      setNewAgendamento(prev => ({ ...prev, fk_servico_id: Number(itemValue) }));
+                    }}
+                    style={styles.picker}
+                    dropdownIconColor="#00635D"
+                  >
+                    <Picker.Item label="Selecione um Serviço" value="" />
+                    {servicos.map(servico => (
+                      <Picker.Item key={servico.id} label={servico.tiposervico} value={servico.id} />
+                    ))}
+                  </Picker>
+                </View>
               </View>
 
-            </View>
+              <View style={styles.modalFooter}>
+                <Button
+                  mode="contained"
+                  onPress={addAgendamento}
+                  style={styles.button}
+                  labelStyle={{ color: 'white', fontWeight: 'bold' }}
+                >
+                  Adicionar Agendamento
+                </Button>
+              </View>
 
-            <View style={styles.modalFooter}>
-              <Button
-                mode="contained"
-                onPress={addAgendamento}
-                textColor="white"
-                buttonColor="#00635D"
-                contentStyle={{ flexDirection: 'row', alignItems: 'center' }}
-                labelStyle={{ marginLeft: 12 }}
-              >
-                <Text>Adicionar Agendamento</Text>
-              </Button>
+              <Text style={styles.link} onPress={() => navigation.navigate('Home')}>Página Inicial</Text>
+              <Text style={styles.link} onPress={() => navigation.navigate('GerenciamentoAgendamentoUser')}>
+                Gerenciamento de Agendamentos
+              </Text>
             </View>
-
-            <Text style={styles.link} onPress={() => navigation.navigate('Home')}>Página Inicial</Text>
-            <Text style={styles.link} onPress={() => navigation.navigate('GerenciamentoAgendamentoUser')}>Gerenciamento de Agendamentos</Text>
           </View>
-
         </SafeAreaView>
       </LinearGradient>
     </PaperProvider>
@@ -315,32 +316,49 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
+  content: {
+    flex: 1,
+    padding: 30,
+    alignItems: 'center',
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 25,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',
+  },
+  brand: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#00635D',
+    marginTop: 5,
+  },
   container: {
     flex: 1,
-    padding: 16,
+    width: '100%',
   },
   modalHeader: {
     alignItems: 'center',
     paddingVertical: 10,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   modalTitle: {
-    fontSize: 18,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: 'white',
+    color: '#000',
   },
   modalContent: {
     marginBottom: 20,
-  },
-  agendamentoInput: {
-    marginBottom: 10,
   },
   pickerContainer: {
     height: 53,
     borderWidth: 1.5,
     borderColor: '#00635D',
     borderRadius: 8,
-    backgroundColor: '#fff6f0',
+    backgroundColor: 'white',
     justifyContent: 'center',
     marginBottom: 16,
     paddingHorizontal: 8,
@@ -348,15 +366,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3, // Android
+    elevation: 3,
   },
-
   picker: {
     height: '100%',
     width: '100%',
-    color: '#5a3e2b', // cor do texto dentro do picker
+    color: '#000',
   },
-
   modalFooter: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -364,13 +380,12 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     marginTop: 10,
   },
-  image: {
-    width: 150,
-    height: 150,
-    resizeMode: 'cover',
-    marginBottom: 20,
-    borderRadius: 50,
-    alignSelf: 'center',
+  button: {
+    width: '100%',
+    marginTop: 10,
+    backgroundColor: '#009A78',
+    borderRadius: 10,
+    paddingVertical: 6,
   },
   link: {
     marginTop: 15,
@@ -381,9 +396,9 @@ const styles = StyleSheet.create({
   datePickerButton: {
     height: 53,
     borderWidth: 1.5,
-    borderColor: '#A67B5B',
+    borderColor: '#00635D',
     borderRadius: 8,
-    backgroundColor: '#fff6f0',
+    backgroundColor: 'white',
     justifyContent: 'center',
     paddingHorizontal: 12,
     marginBottom: 16,
@@ -391,11 +406,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3, // para Android
+    elevation: 3,
   },
-  
   datePickerText: {
-    color: '#5a3e2b',
+    color: '#000',
     fontSize: 16,
   },
 });
