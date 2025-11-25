@@ -40,9 +40,9 @@ const AboutScreen = () => {
           <View style={styles.infoContainer}>
             <Text style={styles.info}>Fundação: <Text style={styles.highlight}>2020</Text></Text>
             <Text style={styles.info}>Especialidade: <Text style={styles.highlight}>Pet Shop / Clínica Veterinária</Text></Text>
-            <Text style={styles.info}>Idiomas: <Text style={styles.highlight}>Português</Text></Text>
-            <Text style={styles.info}>Localização: <Text style={styles.highlight}>Brasília, Brasil</Text></Text>
+            <Text style={styles.info}>Localização: <Text style={styles.highlight}>Samambaia Norte - Brasília, Brasil</Text></Text>
             <Text style={styles.info}>Disponibilidade: <Text style={styles.highlight}>Segunda a Sexta</Text></Text>
+            <Text style={styles.info}>Horário de funcionamento: <Text style={styles.highlight}>08:00 às 17:00</Text></Text>
           </View>
 
           <TouchableOpacity style={styles.button} onPress={() => setModalVisible(true)}>

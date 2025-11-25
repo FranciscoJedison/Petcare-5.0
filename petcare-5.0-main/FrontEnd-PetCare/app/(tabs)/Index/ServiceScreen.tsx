@@ -58,36 +58,41 @@ export default function ServicesScreen() {
         <ScrollView contentContainerStyle={styles.serviceContainer}>
           <Text style={styles.pageTitle}>Nossos Serviços</Text>
 
-          <ServiceItem
-            icon="search"
-            title="Tratamentos Faciais Avançados"
-            description="Limpeza de pele profunda, peelings químicos, microagulhamento, laser facial, radiofrequência e hidratação intensiva."
-          />
-          <ServiceItem
-            icon="heart"
-            title="Tratamentos Corporais"
-            description="Massagens terapêuticas, lipocavitação, criolipólise, radiofrequência, endermologia e envoltórios corporais."
-          />
-          <ServiceItem
-            icon="cut"
-            title="Tratamentos Capilares"
-            description="Mesoterapia, terapia com LED, PRP capilar, detox capilar e hidratação profunda dos fios."
-          />
-          <ServiceItem
-            icon="stethoscope"
-            title="Podologia"
-            description="Tratamento de calos, unhas encravadas, micoses, reflexologia e cuidados para pés diabéticos."
-          />
-          <ServiceItem
-            icon="leaf"
-            title="Bem-Estar e Terapias Alternativas"
-            description="Aromaterapia, acupuntura estética, reiki, reflexologia e meditação guiada."
-          />
-          <ServiceItem
-            icon="star"
-            title="Estética e Remodelação"
-            description="Depilação a laser, bronzeamento, clareamento, esfoliação corporal e hidratação profunda."
-          />
+<ServiceItem
+  icon="tint"
+  title="Banho"
+  description="Higienização completa com produtos específicos, secagem e finalização para deixar o pet limpo e cheiroso."
+/>
+
+<ServiceItem
+  icon="medkit"
+  title="Vacinação"
+  description="Aplicação de vacinas essenciais para a saúde do pet, seguindo um protocolo seguro e atualizado."
+/>
+
+<ServiceItem
+  icon="scissors"
+  title="Tosa"
+  description="Tosa higiênica e estética feita conforme o padrão da raça, garantindo conforto e bem-estar ao pet."
+/>
+
+<ServiceItem
+  icon="hospital-o"
+  title="Castração"
+  description="Procedimento cirúrgico seguro para controle reprodutivo, com acompanhamento pré e pós-operatório."
+/>
+
+<ServiceItem
+  icon="heartbeat"
+  title="Exames de Saúde"
+  description="Avaliação completa com exames laboratoriais e testes diagnósticos para monitorar a saúde do pet."
+/>
+
+<ServiceItem
+  icon="smile-o"
+  title="Limpeza Bucal"
+  description="Higienização dental profissional para prevenir tártaro, mau hálito e doenças periodontais."
+/>
         </ScrollView>
 
         <View style={styles.fixedButtonContainer}>

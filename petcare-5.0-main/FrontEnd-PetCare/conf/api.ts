@@ -1,2 +1,2 @@
-const API_URL = 'http://192.168.1.40:3000';
+const API_URL = 'https://normand-epiglottidean-farrah.ngrok-free.dev';
 export default API_URL;
