@@ -86,6 +86,8 @@ export default function RedefinirSenhaScreen() {
           label="Nova Senha"
           value={novaSenha}
           onChangeText={setNovaSenha}
+          autoCapitalize="none"
+          autoCorrect={false}
           secureTextEntry
           style={styles.input}
           underlineColor="#00635D"
@@ -97,6 +99,8 @@ export default function RedefinirSenhaScreen() {
           label="Confirmar Nova Senha"
           value={confirmarSenha}
           onChangeText={setConfirmarSenha}
+          autoCapitalize="none"
+          autoCorrect={false}
           secureTextEntry
           style={styles.input}
           underlineColor="#00635D"

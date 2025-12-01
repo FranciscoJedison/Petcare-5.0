@@ -91,6 +91,8 @@ export default function LoginScreen() {
           value={senha}
           onChangeText={setSenha}
           secureTextEntry
+          autoCapitalize="none"
+          autoCorrect={false}
           style={styles.input}
           underlineColor="#00635D"
           activeUnderlineColor="#009A78"

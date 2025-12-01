@@ -26,9 +26,11 @@ import Relatorio from '../Relatorio';
 import AlterarSenhaScreen from './AlterarSenha';
 import RedefinirSenhaScreen from './RedefinirSenha';
 type ColorScheme = 'light' | 'dark';
+import { useFonts } from 'expo-font';
 
 const DrawerNavigator = createDrawerNavigator();
 const TabNavigator = createBottomTabNavigator();
+
 
 function Tabs() {
   const colorScheme = useColorScheme();
@@ -121,6 +123,7 @@ function Tabs() {
         component={HomeScreen} 
         options={{ 
           title: 'Página Inicial',
+          headerTitleAlign: 'center',
           tabBarLabel: 'Início'
         }} 
       />
@@ -129,6 +132,7 @@ function Tabs() {
         component={AboutScreen} 
         options={{ 
           title: 'Sobre Nós',
+          headerTitleAlign: 'center',
           tabBarLabel: 'Sobre'
         }} 
       />
@@ -137,6 +141,7 @@ function Tabs() {
         component={ServiceScreen} 
         options={{ 
           title: 'Nossos Serviços',
+          headerTitleAlign: 'center',
           tabBarLabel: 'Serviços'
         }} 
       />
@@ -145,6 +150,7 @@ function Tabs() {
         component={TestimonialScreen} 
         options={{ 
           title: 'Depoimentos',
+          headerTitleAlign: 'center',
           tabBarLabel: 'Depoimentos'
         }} 
       />
@@ -153,6 +159,7 @@ function Tabs() {
         component={ContactScreen} 
         options={{ 
           title: 'Contato',
+          headerTitleAlign: 'center',
           tabBarLabel: 'Contato'
         }} 
       />
@@ -198,7 +205,7 @@ export default function DrawerLayout() {
       screenOptions={({ navigation }) => ({
         drawerStyle: {
           backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          width: 280,
+          width: 480,
           elevation: 20,
           shadowColor: '#000',
           shadowOffset: { width: 2, height: 0 },
@@ -259,7 +266,8 @@ export default function DrawerLayout() {
         component={Tabs}
         options={{
           title: 'Menu Principal',
-          headerTitle: 'Pet Care',
+          headerTitle: 'PetCare',
+          headerTitleAlign: 'center',
           drawerIcon: ({ color, size, focused }) => (
             <Ionicons name="home" size={24} color={color} />
           ),
@@ -272,6 +280,7 @@ export default function DrawerLayout() {
             name="Login"
             options={{
               title: 'Entrar',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="login" size={24} color={color} />
               ),
@@ -282,6 +291,7 @@ export default function DrawerLayout() {
             name="RegistroUser"
             options={{
               title: 'Cadastrar',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="account-plus" size={24} color={color} />
               ),
@@ -297,6 +307,12 @@ export default function DrawerLayout() {
             name="GerenciamentoUser"
             options={{
               title: 'Gerenciar Usuários',
+              headerTitleAlign: 'center',
+              headerTitleStyle: {
+                fontSize: 20,
+                fontFamily: 'Cakecafe',
+                textAlign: 'center',  
+              },
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="account-group" size={24} color={color} />
               ),
@@ -307,6 +323,7 @@ export default function DrawerLayout() {
             name="GerenciamentoAgendamento"
             options={{
               title: 'Gerenciar Agendamentos',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="calendar-multiple" size={24} color={color} />
               ),
@@ -317,6 +334,7 @@ export default function DrawerLayout() {
             name="GerenciamentoServico"
             options={{
               title: 'Gerenciar Serviços',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="dog-service" size={24} color={color} />
               ),
@@ -327,6 +345,7 @@ export default function DrawerLayout() {
             name="AlterarSenha"
             options={{
               title: 'Alterar Senha',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="key-change" size={24} color={color} />
               ),
@@ -337,6 +356,7 @@ export default function DrawerLayout() {
             name="Sair"
             options={{
               title: 'Sair',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="logout" size={24} color={color} />
               ),
@@ -357,6 +377,7 @@ export default function DrawerLayout() {
             name="GerenciamentoAgendamento"
             options={{
               title: 'Meus Agendamentos',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="calendar-check" size={24} color={color} />
               ),
@@ -367,6 +388,7 @@ export default function DrawerLayout() {
             name="CadastroAtendimento"
             options={{
               title: 'Novo Agendamento',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="calendar-plus" size={24} color={color} />
               ),
@@ -377,6 +399,7 @@ export default function DrawerLayout() {
             name="AlterarSenha"
             options={{
               title: 'Alterar Senha',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="key-change" size={24} color={color} />
               ),
@@ -387,6 +410,7 @@ export default function DrawerLayout() {
             name="Sair"
             options={{
               title: 'Sair',
+              headerTitleAlign: 'center',
               drawerIcon: ({ color, size, focused }) => (
                 <MaterialCommunityIcons name="logout" size={24} color={color} />
               ),
@@ -403,6 +427,7 @@ export default function DrawerLayout() {
     </DrawerNavigator.Navigator>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

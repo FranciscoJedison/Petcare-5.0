@@ -1,7 +1,17 @@
 import React from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Linking, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  Linking,
+  ScrollView,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { Image } from "react-native";
+
 
 const ContactScreen = () => {
   return (
@@ -10,94 +20,66 @@ const ContactScreen = () => {
       style={styles.container}
     >
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.title}>🐾 Pet Care</Text>
+        <View style={styles.imageContainer}>
+          <Image 
+            source={require('../../../assets/images/petcareicon.png')} 
+            style={styles.imageContain} 
+          />
+        </View>
+        <Text style={styles.title}>Pet Care</Text>
         <Text style={styles.subtitle}>Fale conosco</Text>
         <Text style={styles.description}>
           Entre em contato para mais informações sobre nossos serviços de cuidados aos animais.
         </Text>
 
-        {/* Contato */}
-        <View style={styles.contactBlock}>
-          <View style={styles.contactRow}>
-            <Ionicons name="call-outline" size={22} color="#00BFA6" />
-            <View style={styles.contactText}>
-              <Text style={styles.contactLabel}>Telefone</Text>
-              <Text style={styles.contactValue}>+123-456-789</Text>
-              <Text style={styles.contactValue}>+111-222-333</Text>
-            </View>
-          </View>
+        {/* BLOCO DE REDES SOCIAIS */}
+        <View style={styles.socialBlock}>
+          {/* WHATSAPP */}
+          <TouchableOpacity
+            style={styles.socialItem}
+            onPress={() => Linking.openURL("https://wa.me/5561982499435")}
+          >
+            <FontAwesome name="whatsapp" size={40} color="#25D366" />
+            <Text style={styles.socialLabel}>WhatsApp</Text>
+            <Text style={styles.socialLink}>(61) 98249-9435</Text>
+          </TouchableOpacity>
 
-          <View style={styles.contactRow}>
-            <Ionicons name="mail-outline" size={22} color="#00BFA6" />
-            <View style={styles.contactText}>
-              <Text style={styles.contactLabel}>Email</Text>
-              <Text style={styles.contactValue}>info@PetCareVeterinario.com</Text>
-              <Text style={styles.contactValue}>appointments@PetCareVeterinario.com</Text>
-            </View>
-          </View>
+          {/* INSTAGRAM */}
+          <TouchableOpacity
+            style={styles.socialItem}
+            onPress={() => Linking.openURL("https://instagram.com/PetCare")}
+          >
+            <FontAwesome name="instagram" size={40} color="#E1306C" />
+            <Text style={styles.socialLabel}>Instagram</Text>
+            <Text style={styles.socialLink}>@PetCare</Text>
+          </TouchableOpacity>
 
-          <View style={styles.contactRow}>
-            <FontAwesome name="instagram" size={22} color="#00BFA6" />
-            <View style={styles.contactText}>
-              <Text style={styles.contactLabel}>Instagram</Text>
-              <Text
-                style={styles.link}
-                onPress={() => Linking.openURL("https://www.instagram.com/PetCare")}
-              >
-                @PetCare
-              </Text>
-            </View>
-          </View>
+          {/* FACEBOOK */}
+          <TouchableOpacity
+            style={styles.socialItem}
+            onPress={() => Linking.openURL("https://facebook.com/PetCare")}
+          >
+            <FontAwesome name="facebook-square" size={40} color="#1877F2" />
+            <Text style={styles.socialLabel}>Facebook</Text>
+            <Text style={styles.socialLink}>/PetCare</Text>
+          </TouchableOpacity>
 
-          <View style={styles.contactRow}>
-            <FontAwesome name="facebook-square" size={22} color="#00BFA6" />
-            <View style={styles.contactText}>
-              <Text style={styles.contactLabel}>Facebook</Text>
-              <Text
-                style={styles.link}
-                onPress={() => Linking.openURL("https://www.facebook.com/PetCare")}
-              >
-                /PetCare
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        {/* Formulário */}
-        <View style={styles.formCard}>
-          <TextInput
-            style={styles.input}
-            placeholder="Nome"
-            placeholderTextColor="#888"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            placeholderTextColor="#888"
-            keyboardType="email-address"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Assunto"
-            placeholderTextColor="#888"
-          />
-          <TextInput
-            style={[styles.input, styles.textArea]}
-            placeholder="Mensagem"
-            placeholderTextColor="#888"
-            multiline
-          />
-
-          <TouchableOpacity style={styles.button}>
-            <LinearGradient
-              colors={["#00BFA6", "#0A6963"]}
-              style={styles.buttonGradient}
-            >
-              <Ionicons name="send" size={18} color="#fff" style={{ marginRight: 6 }} />
-              <Text style={styles.buttonText}>Enviar mensagem</Text>
-            </LinearGradient>
+          {/* EMAIL */}
+          <TouchableOpacity
+            style={styles.socialItem}
+            onPress={() =>
+              Linking.openURL("mailto:info@PetCareVeterinario.com")
+            }
+          >
+            <FontAwesome name="envelope" size={38} color="#555" />
+            <Text style={styles.socialLabel}>Email</Text>
+            <Text style={styles.socialLink}>
+              info@PetCareVeterinario.com
+            </Text>
           </TouchableOpacity>
         </View>
+
+      
       </ScrollView>
     </LinearGradient>
   );
@@ -111,6 +93,8 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingTop: 40,
   },
+
+  /** Títulos */
   title: {
     fontSize: 28,
     fontWeight: "bold",
@@ -130,35 +114,34 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginVertical: 15,
   },
-  contactBlock: {
-    marginBottom: 20,
+
+  /** Redes Sociais */
+  socialBlock: {
+    marginVertical: 22,
     backgroundColor: "#fff",
     borderRadius: 16,
-    padding: 15,
+    padding: 20,
     elevation: 4,
     shadowColor: "#000",
   },
-  contactRow: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    marginBottom: 15,
+  socialItem: {
+    alignItems: "center",
+    marginBottom: 28,
   },
-  contactText: {
-    marginLeft: 10,
-  },
-  contactLabel: {
-    fontWeight: "bold",
-    color: "#222",
+  socialLabel: {
     fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 6,
+    color: "#222",
   },
-  contactValue: {
-    color: "#555",
-    fontSize: 15,
-  },
-  link: {
+  socialLink: {
+    marginTop: 3,
     color: "#00BFA6",
     textDecorationLine: "underline",
+    fontSize: 15,
   },
+
+  /** Formulário */
   formCard: {
     backgroundColor: "#fff",
     borderRadius: 16,
@@ -196,6 +179,15 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
+  },    
+  imageContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  imageContain: {
+    width: 150,
+    height: 150,
+    marginBottom: 10,
   },
 });
 

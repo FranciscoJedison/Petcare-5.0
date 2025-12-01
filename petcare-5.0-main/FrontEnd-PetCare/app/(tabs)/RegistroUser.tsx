@@ -88,6 +88,8 @@ export default function RegisterScreen() {
           label="Senha"
           value={password}
           onChangeText={setPassword}
+          autoCapitalize="none"
+          autoCorrect={false}
           secureTextEntry
           style={styles.input}
           underlineColor="#00635D"

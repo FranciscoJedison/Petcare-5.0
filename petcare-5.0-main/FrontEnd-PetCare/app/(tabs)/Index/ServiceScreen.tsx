@@ -12,6 +12,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
+import { Image } from "react-native";
+
 
 // Importa telas filhas
 import Login from '../Login';
@@ -56,6 +58,12 @@ export default function ServicesScreen() {
     <>
       <LinearGradient colors={['#00BFA6', '#FFFFFF']} style={styles.container}>
         <ScrollView contentContainerStyle={styles.serviceContainer}>
+          <View style={styles.imageContainer}>
+          <Image 
+            source={require('../../../assets/images/petcareicon.png')} 
+            style={styles.imageContain} 
+          />
+        </View>
           <Text style={styles.pageTitle}>Nossos Serviços</Text>
 
 <ServiceItem
@@ -249,5 +257,14 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     fontSize: 16,
     fontWeight: '600',
+  },
+    imageContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  imageContain: {
+    width: 150,
+    height: 150,
+    marginBottom: 10,
   },
 });

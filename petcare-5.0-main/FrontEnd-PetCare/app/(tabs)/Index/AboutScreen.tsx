@@ -29,7 +29,7 @@ const AboutScreen = () => {
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.imageContainer}>
           <Image 
-            source={require('../../../assets/images/petcare.png')} 
+            source={require('../../../assets/images/petcareicon.png')} 
             style={styles.image} 
           />
         </View>

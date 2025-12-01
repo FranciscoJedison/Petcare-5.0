@@ -68,7 +68,7 @@ export default function HomeScreen() {
           ]}
         >
           <Image
-            source={require('../../assets/images/petcare.png')}
+            source={require('../../assets/images/petcareicon.png')}
             style={styles.image}
           />
         </Animated.View>

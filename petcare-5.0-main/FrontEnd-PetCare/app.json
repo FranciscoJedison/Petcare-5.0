@@ -4,7 +4,7 @@
     "slug": "FrontReactNative",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "../assets/images/petcare.png",
+    "icon": "../assets/images/petcareicon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,8 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/petcareicon.png"
       },
       "package": "com.francisco_jedison.FrontReactNative"
     },

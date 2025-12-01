@@ -86,7 +86,13 @@ const TestimonialScreen = () => {
       style={styles.container}
     >
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.title}>🐾 Depoimentos</Text>
+        <View style={styles.imageContainer}>
+          <Image 
+            source={require('../../../assets/images/petcareicon.png')} 
+            style={styles.imageContain} 
+          />
+        </View>
+        <Text style={styles.title}>Depoimentos</Text>
         <Text style={styles.subtitle}>
           O que nossos clientes dizem sobre o Pet Care
         </Text>
@@ -298,6 +304,15 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
+  },
+    imageContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  imageContain: {
+    width: 150,
+    height: 150,
+    marginBottom: 10,
   },
   cancelText: {
     color: '#999',
